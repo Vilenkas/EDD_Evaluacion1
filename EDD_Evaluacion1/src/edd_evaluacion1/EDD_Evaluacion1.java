@@ -34,7 +34,7 @@ public class EDD_Evaluacion1 {
                 break;
                 case 3: terceraFuncion();
                 break;
-                case 4:
+                case 4: cuartaFuncion();
                 break;
                 case 0:
                 break;
@@ -241,5 +241,63 @@ public class EDD_Evaluacion1 {
         }
         
     }
+
+    private static void cuartaFuncion() {
+        
+        System.out.println("");
+        System.out.println("*** Esta funcion determina si una matriz cuadrada es una matriz triangular superior ***");
+        
+        boolean EsTriangularSuperior = true, bool_aux = false;
+        int orden, int_aux = 0;
+        
+        System.out.println("");
+        orden = ingresarNumero("Ingrese el orden de la matriz cuadrada: ");
+        
+        int[][] Matriz = new int[orden][orden];
+        
+        System.out.println("");
+        System.out.println("*** Ingrese los "+(orden*orden)+" elementos de la matriz ***");
+        System.out.println("");
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden; j++) {
+                Matriz[i][j] = ingresarNumero("Ingrese el elemento cuyas coordenadas son ["+(i+1)+"]["+(j+1)+"]: ");
+            }
+        }
+        
+        System.out.println("");
+        System.out.println("*** Usted ingreso la siguiente matriz ***");
+        System.out.println("");
+        
+        for (int i = 0; i < orden; i++) {
+            System.out.print("[ ");
+            for (int j = 0; j < orden; j++) {
+                System.out.print(Matriz[i][j]+" ");
+            }
+            System.out.println("]");
+        }
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden; j++) {
+                if (j == int_aux || bool_aux == true){
+                    if (Matriz[i][j] == 0) EsTriangularSuperior = false;
+                    bool_aux = true;
+                } else if(Matriz[i][j] != 0){
+                    EsTriangularSuperior = false;
+                }
+            }
+            int_aux++;
+            bool_aux = false;
+        }
+        
+        System.out.println("");
+        if (EsTriangularSuperior == true){
+            System.out.println("--- La matriz ingresada es una matriz triangular superior.");
+        } else {
+            System.out.println("--- La matriz ingresada NO es una matriz triangular superior.");
+        }
+    }
+
+    
     
 }
