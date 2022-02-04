@@ -32,7 +32,7 @@ public class EDD_Evaluacion1 {
                 break;
                 case 2: segundaFuncion();
                 break;
-                case 3:
+                case 3: terceraFuncion();
                 break;
                 case 4:
                 break;
@@ -161,6 +161,7 @@ public class EDD_Evaluacion1 {
     }
 
     private static void segundaFuncion() {
+        
         System.out.println("");
         System.out.println("*** La siguiente matriz se rellenara segun el polinomio (23X^4)+(20Y^3)-3 ***");
         
@@ -184,6 +185,61 @@ public class EDD_Evaluacion1 {
             }
             System.out.println("]");
         }
+    }
+
+    private static void terceraFuncion() {
+        
+        System.out.println("");
+        System.out.println("*** Esta funcion determina si una matriz cuadrada es una matriz identidad ***");
+        
+        boolean EsIdentidad = true;
+        int orden, aux = 0;
+        
+        System.out.println("");
+        orden = ingresarNumero("Ingrese el orden de la matriz cuadrada: ");
+        
+        int[][] Matriz = new int[orden][orden];
+        
+        System.out.println("");
+        System.out.println("*** Ingrese los "+(orden*orden)+" elementos de la matriz ***");
+        System.out.println("");
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden; j++) {
+                Matriz[i][j] = ingresarNumero("Ingrese el elemento cuyas coordenadas son ["+(i+1)+"]["+(j+1)+"]: ");
+            }
+        }
+        
+        System.out.println("");
+        System.out.println("*** Usted ingreso la siguiente matriz ***");
+        System.out.println("");
+        
+        for (int i = 0; i < orden; i++) {
+            System.out.print("[ ");
+            for (int j = 0; j < orden; j++) {
+                System.out.print(Matriz[i][j]+" ");
+            }
+            System.out.println("]");
+        }
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden; j++) {
+                if (j == aux){
+                    if (Matriz[i][j] != 1) EsIdentidad = false;
+                } else {
+                    if (Matriz[i][j] != 0) EsIdentidad = false;
+                }
+            }
+            aux++;
+        }
+        
+        System.out.println("");
+        if (EsIdentidad == true){
+            System.out.println("--- La matriz ingresada es una matriz identidad.");
+        } else {
+            System.out.println("--- La matriz ingresada NO es una matriz identidad.");
+        }
+        
     }
     
 }
