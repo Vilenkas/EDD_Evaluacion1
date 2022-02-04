@@ -30,7 +30,7 @@ public class EDD_Evaluacion1 {
             switch (selec) {
                 case 1: primeraFuncion();
                 break;
-                case 2:
+                case 2: segundaFuncion();
                 break;
                 case 3:
                 break;
@@ -155,6 +155,32 @@ public class EDD_Evaluacion1 {
             System.out.print("[ ");
             for (int j = 0; j < orden; j++) {
                 System.out.print(M_RESULTADO[i][j]+" ");
+            }
+            System.out.println("]");
+        }
+    }
+
+    private static void segundaFuncion() {
+        System.out.println("");
+        System.out.println("*** La siguiente matriz se rellenara segun el polinomio (23X^4)+(20Y^3)-3 ***");
+        
+        System.out.println("");
+        int X = ingresarNumero("Ingrese el numero de filas de la matriz: ");
+        int Y = ingresarNumero("Ingrese el numero de columnas de la matriz: ");
+        System.out.println("");
+        
+        int[][] Matriz = new int[X][Y];
+        
+        for (int i = 0; i < X; i++) {
+            for (int j = 0; j < Y; j++) {
+                Matriz[i][j] = ((23*(i*i*i*i))+(20*(j*j*j))-3);
+            }
+        }
+        
+        for (int i = 0; i < X; i++) {
+            System.out.print("[ ");
+            for (int j = 0; j < Y; j++) {
+                System.out.print(Matriz[i][j]+" ");
             }
             System.out.println("]");
         }
